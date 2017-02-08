@@ -1,0 +1,5 @@
+Output of "git branch -v":
+
+Yuichis-MacBook-Pro-2:Homework1 Yuichi$ git branch -v
+* HW1    8baab61 Adding HW1
+  master fffdd50 random commitment
