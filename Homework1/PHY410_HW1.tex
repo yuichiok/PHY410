@@ -1,0 +1,200 @@
+\documentclass{article}
+% Change "article" to "report" to get rid of page number on title page
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{setspace}
+\usepackage{Tabbing}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage{extramarks}
+\usepackage{chngpage}
+\usepackage{soul,color}
+\usepackage{graphicx,float,wrapfig}
+\usepackage{cancel}
+\usepackage{relsize}
+\usepackage{graphicx} 
+\usepackage{multicol}
+\usepackage{wrapfig}
+\usepackage{tikz}
+\usetikzlibrary{arrows,shapes.gates.logic.US,shapes.gates.logic.IEC,calc}
+\usetikzlibrary{arrows.meta}
+% In case you need to adjust margins:
+\topmargin=-0.45in      %
+\evensidemargin=0in     %
+\oddsidemargin=0in      %
+\textwidth=6.5in        %
+\textheight=9.0in       %
+\headsep=0.25in         %
+
+% Homework Specific Information
+\newcommand{\hmwkTitle}{Homework\ \#1}
+\newcommand{\hmwkDueDate}{\today}
+\newcommand{\hmwkClass}{PHY\ 410}
+\newcommand{\hmwkClassTime}{4:00 pm}
+\newcommand{\hmwkClassInstructor}{Professor Rappoccio}
+\newcommand{\hmwkAuthorName}{Yuichi\ Okugawa\ }
+
+% Setup the header and footer
+\pagestyle{fancy}                                                       %
+\lhead{\hmwkAuthorName}                                                 %
+\chead{\hmwkClass\ (\hmwkClassInstructor\ \hmwkClassTime): \hmwkTitle}  %
+\rhead{\firstxmark}                                                     %
+\lfoot{\lastxmark}                                                      %
+\cfoot{}                                                                %
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}                          %
+\renewcommand\headrulewidth{0.4pt}                                      %
+\renewcommand\footrulewidth{0.4pt}                                      %
+
+% This is used to trace down (pin point) problems
+% in latexing a document:
+%\tracingall
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%my tools
+\newcommand{\rmd}{\mathrm{d}}
+\newcommand{\Lagr}{\mathcal{L}}
+\newcommand{\del}{\nabla}
+\newcommand{\pfrac}[2]{\frac{\partial #1 }{\partial #2}}
+
+% Some tools
+\newcommand{\enterProblemHeader}[1]{\nobreak\extramarks{#1}{#1 continued on next page\ldots}\nobreak%
+                                    \nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak}%
+\newcommand{\exitProblemHeader}[1]{\nobreak\extramarks{#1 (continued)}{#1 continued on next page\ldots}\nobreak%
+                                   \nobreak\extramarks{#1}{}\nobreak}%
+
+\newlength{\labelLength}
+\newcommand{\labelAnswer}[2]
+  {\settowidth{\labelLength}{#1}%
+   \addtolength{\labelLength}{0.25in}%
+   \changetext{}{-\labelLength}{}{}{}%
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#2\end{minipage}}%
+   \marginpar{\fbox{#1}}%
+
+   % We put the blank space above in order to make sure this
+   % \marginpar gets correctly placed.
+   \changetext{}{+\labelLength}{}{}{}}%
+
+\setcounter{secnumdepth}{0}
+\newcommand{\homeworkProblemName}{}%
+\newcounter{homeworkProblemCounter}%
+\newenvironment{homeworkProblem}[1][Problem \arabic{homeworkProblemCounter}]%
+  {\stepcounter{homeworkProblemCounter}%
+   \renewcommand{\homeworkProblemName}{#1}%
+   \section{\homeworkProblemName}%
+   \enterProblemHeader{\homeworkProblemName}}%
+  {\exitProblemHeader{\homeworkProblemName}}%
+
+\newcommand{\problemAnswer}[1]
+  {\noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}}%
+
+\newcommand{\problemLAnswer}[1]
+  {\labelAnswer{\homeworkProblemName}{#1}}
+
+\newcommand{\homeworkSectionName}{}%
+\newlength{\homeworkSectionLabelLength}{}%
+\newenvironment{homeworkSection}[1]%
+  {% We put this space here to make sure we're not connected to the above.
+   % Otherwise the changetext can do funny things to the other margin
+
+   \renewcommand{\homeworkSectionName}{#1}%
+   \settowidth{\homeworkSectionLabelLength}{\homeworkSectionName}%
+   \addtolength{\homeworkSectionLabelLength}{0.25in}%
+   \changetext{}{-\homeworkSectionLabelLength}{}{}{}%
+   \subsection{\homeworkSectionName}%
+   \enterProblemHeader{\homeworkProblemName\ [\homeworkSectionName]}}%
+  {\enterProblemHeader{\homeworkProblemName}%
+
+   \changetext{}{+\homeworkSectionLabelLength}{}{}{}}%
+
+\newcommand{\sectionAnswer}[1]
+  {% We put this space here to make sure we're disconnected from the previous
+   % passage
+
+   \noindent\fbox{\begin{minipage}[c]{\columnwidth}#1\end{minipage}}%
+   \enterProblemHeader{\homeworkProblemName}\exitProblemHeader{\homeworkProblemName}%
+   \marginpar{\fbox{\homeworkSectionName}}%
+   }%
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Make title
+\title{\vspace{2in}\textmd{\textbf{\hmwkClass:\ \hmwkTitle}}\\\normalsize\vspace{0.1in}\small{Due\ on\ \hmwkDueDate}\\\vspace{0.1in}\large{\textit{\hmwkClassInstructor\ \hmwkClassTime}}\vspace{3in}}
+\date{}
+\author{\textbf{\hmwkAuthorName}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=2pt] (char) {#1};}}
+
+\begin{document}
+\begin{spacing}{1.1}
+\maketitle
+\newpage
+\tableofcontents
+\newpage
+
+\clearpage
+%%%%%%%%%              Problem 1            %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{homeworkProblem}[Problem 2]
+What are the two's complement representations for the following (decimal) numbers? Show your work. Submit a tex file or equivalent (word, pages, etc) on your github directory ``Homework 1".\\
+a) 10\\
+b) 436\\
+c) 1024\\
+d) -13\\
+e) -1023\\
+f) -1024\\
+\noindent\rule[0.15\baselineskip]{\textwidth}{2pt}
+\noindent{\bf Solution\,}\\
+a)  $10=1\cdot2^3+0\cdot2^2+1\cdot2^1+0\cdot2^0$.\\
+Since it is a positive number, we add 0 in front to distinguish from negative ones. Therefore,\\
+$$10=01010$$
+\\b) Divide the number by two. If there is a remainder, we print 1, otherwise 0. We repeat this process until we reach 1. Below is the procedure.
+$$
+ \begin{array}{|l}
+    \llap{2~~~~} 436 \cdots 0 \\ \hline
+    \llap{2~~~~} 218 \cdots 0  \\ \hline
+    \llap{2~~~~} 109 \cdots 1 \\ \hline
+    \llap{2~~~~} 54   \cdots 0 \\ \hline
+    \llap{2~~~~} 27   \cdots 1 \\ \hline
+    \llap{2~~~~} 13   \cdots 1 \\ \hline
+    \llap{2~~~~} 6     \cdots 0\\ \hline
+    \llap{2~~~~} 3     \cdots 1 \\ \hline
+                 1
+\end{array}
+$$
+To convert 436 into binary, we simply read these remainders from the bottom. Therefore\\
+$$436=0110110100$$
+\\
+c) It is useful to know that $1024=2^{10}$. Therefore,\\
+$$1024=010000000000$$
+\\
+d) To find two's complement of negative decimal, we simply flip the bits, then add 1.
+First we find binary expression of 13. $13=1\cdot2^3+1\cdot2^2+0\cdot2^1+1\cdot2^0$. So\\ 
+$$13=01101$$
+Now we flip bits.
+$$01101\rightarrow10010$$
+Add 1.
+$$10010+00001=10011$$
+\\
+e) We will come back to this part later, I promise.
+\\
+\\f) Combined the binary form we found in part c and technique we used in part d, we can figure out $-1024$.
+$$1024=010000000000$$
+Now we flip bits.
+$$010000000000\rightarrow101111111111$$
+Add 1.
+$$101111111111+000000000001=110000000000$$
+\\
+e) Now, all we have to do is to add 1 to the answer in part f since $-1023=-1024+1$.
+$$-1023=110000000000+000000000001=110000000001$$
+\qed
+
+
+
+\end{homeworkProblem}
+\pagebreak
+\clearpage
+\end{spacing}
+\end{document}
+%----------------------------------------------------------------------%
