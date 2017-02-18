@@ -1,5 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
+#include <cmath>
+#include <limits>
 
 int main(void){
     
@@ -18,10 +20,12 @@ int main(void){
     double m;
     m = (y2-y1)/(x2-x1);
     
+    std::cout << "x1 = " << x1 << ", x2 = " << x2 << ", y1 = " << y1 << ", y2 = " << y2 << std::endl;
+    
     //error messages
-    if(x1==x2&&y1==y2){
+    if((std::abs(x1 - x2) < std::numeric_limits<double>::epsilon())&&(std::abs(y1 - y2) < std::numeric_limits<double>::epsilon())){
         std::cout << "Fatal Error: You need two distinct points to form linear equation." << std::endl;
-    }else if(x1==x2){
+    }else if((std::abs(x1 - x2) < std::numeric_limits<double>::epsilon())){
         std::cout << "Error: x1 = x2" << "\n";
     }else{
         
@@ -35,9 +39,9 @@ int main(void){
         
         //write down equation
         std::cout << "y = ";
-        if(m==1){
+        if(std::abs(m - 1) < std::numeric_limits<double>::epsilon()){
             std::cout << "x";
-        }else if(m==-1){
+        }else if(std::abs(m - (-1)) < std::numeric_limits<double>::epsilon()){
             std::cout << "-x";
         }else if(m<0||m>0){
             std::cout << m << "x";
@@ -51,8 +55,8 @@ int main(void){
             }
         }
         
-        if(m==0){
-            if(b==0){
+        if(std::abs(m - 0) < std::numeric_limits<double>::epsilon()){
+            if(std::abs(b - 0) < std::numeric_limits<double>::epsilon()){
                 std::cout << "0";
             }else if(b!=0){
                 std::cout << b;
