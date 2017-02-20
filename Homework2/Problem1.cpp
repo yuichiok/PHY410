@@ -25,7 +25,6 @@ int main(void){
     y_half = y1 + (y2-y1)/2;
     
     
-    
     if(std::abs(m - 0) < std::numeric_limits<double>::epsilon()){
         m = 0;
     }
