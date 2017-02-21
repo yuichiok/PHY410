@@ -7,14 +7,41 @@ int main(void){
     
     //enter x1,x2,y1,y2
     double x1,x2,y1,y2;
-    std::cout << "Enter x1: ";
-    std::cin >> x1;
-    std::cout << "Enter y1: ";
-    std::cin >> y1;
-    std::cout << "Enter x2: ";
-    std::cin >> x2;
-    std::cout << "Enter y2: ";
-    std::cin >> y2;
+    
+    while(1){
+        std::cout << "Enter x1: ";
+        std::cin >> x1;
+        if( !std::cin.fail() ) break;
+        std::cout << "Oops! You must enter a number! \n";
+        std::cin.clear();    //reset cin value
+        std::cin.ignore( 1024, '\n' ); //disregard strings
+    }
+    while(1){
+        std::cout << "Enter y1: ";
+        std::cin >> y1;
+        if( !std::cin.fail() ) break;
+        std::cout << "Oops! You must enter a number! \n";
+        std::cin.clear();    //reset cin value
+        std::cin.ignore( 1024, '\n' ); //disregard strings
+    }
+    while(1){
+        std::cout << "Enter x2: ";
+        std::cin >> x2;
+        if( !std::cin.fail() ) break;
+        std::cout << "Oops! You must enter a number! \n";
+        std::cin.clear();    //reset cin value
+        std::cin.ignore( 1024, '\n' ); //disregard strings
+    }
+    while(1){
+        std::cout << "Enter y2: ";
+        std::cin >> y2;
+        if( !std::cin.fail() ) break;
+        std::cout << "Oops! You must enter a number! \n";
+        std::cin.clear();    //reset cin value
+        std::cin.ignore( 1024, '\n' ); //disregard strings
+    }
+    
+    std::cout << std::string(60, '*') << std::endl;
     
     std::cout << "Points (" << x1 << ", " << y1 << ") and (" << x2 << ", " << y2 << ") entered." << std::endl;
     
@@ -24,12 +51,13 @@ int main(void){
     x_half = x1 + (x2-x1)/2;
     y_half = y1 + (y2-y1)/2;
     
-    
+    //set 0 to 0
+    /*
     if(std::abs(m - 0) < std::numeric_limits<double>::epsilon()){
         m = 0;
-    }
+    }*/
     
-    std::cout << "m = " << m << std::endl;
+    //std::cout << "m = " << m << std::endl;
     
     //print midpoint
     std::cout << "Midpoint = (" << x_half << ", " << y_half << ")" << std::endl;
