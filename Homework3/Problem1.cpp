@@ -15,7 +15,8 @@ int main(void){
     int i = 0;
     int n_magvec =0;
     
-    std::cout << "Enter vectors: ";
+    std::cout << "Enter vectors like x1 y1 x2 y2 ... xn yn.\n";
+    std::cout << "When you're done, press anything other than number:\n";
     
     //input
     while( std::cin >> xi >> yi ) {
@@ -35,7 +36,7 @@ int main(void){
 
     std::cout << std::string(60, '*') << std::endl;
     
-    std::cout << "vectors:";
+    std::cout << "Minimum vectors:";
     
     n_magvec = magvec.size();
     
@@ -49,7 +50,7 @@ int main(void){
         }
     }
     
-    std::cout << "\n" << "magnitude = " << magmin << std::endl;
+    std::cout << "\n" << "Minimum magnitude = " << magmin << std::endl;
     std::cout << "DONE!" << std::endl;
     
     return 0;
