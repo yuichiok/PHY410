@@ -22,11 +22,20 @@ void StudentRecord::print() const{
     
 }
 
-
-
-
-
-
+bool StudentRecord::input ( std::istream & in ) {
+    
+    std::string line;
+    std::getline( in, line, ',');
+    lastname_ = line;
+    std::getline( in, line, ',');
+    firstname_ = line;
+    std::getline( in, line );
+    score_ = std::atof( line.c_str() );
+    if ( line == "")
+        return false;
+    else
+        return true;
+}
 
 
 std::string StudentRecord::last() const { return lastname_; }

@@ -3,19 +3,23 @@
 #include <iostream>
 #include "StudentRecord.h"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+float calculate_average(std::vector<StudentRecord> *rcd){
+    
+    int size = 0;
+    double sum,avg = 0;
+    size = rcd->size();
+    
+    for (int n = 0; n < size; n++) {
+        
+        sum += rcd->at(n).score();
+        
+    }
+    
+    avg = sum / size;
+    
+    return avg;
+    
+}
 
 int main( int argc, char * argv[] ){
     
@@ -48,7 +52,7 @@ int main( int argc, char * argv[] ){
         
     }
     
-    std::cout << "Out of loop" << std::endl;
+    //std::cout << "Out of loop" << std::endl;
     
     int ivec = 0;
     
@@ -56,26 +60,19 @@ int main( int argc, char * argv[] ){
     
     for(int j = 0; j < ivec; j++){
         
-        //std::cout << "row " << j+1 << std::endl;
+        std::cout << std::endl;
+        std::cout << "Subject " << j+1 << std::endl;
         StudentRecord p(last[j],first[j],scorevec[j]);
-        //p.print();
+        p.print();
         record.push_back(p);
         
     }
     
-    //record.at(1).print();
+    double result =0;
     
-    int irecord = 0;
+    result = calculate_average( &record );
     
-    irecord = record.size();
-    
-    for (int k = 0; k < irecord; k++) {
-        
-        std::cout << "Score for person " << k+1 << " is ";
-        std::cout << record.at(k).score() << std::endl;
-        
-    }
-    
+    std::cout << "avg = " << result << std::endl;
     
     
     return 0;

@@ -17,6 +17,8 @@ public:
     std::string first() const;
     float score() const;
     
+    bool input ( std::istream & in );
+    
 private:
     std::string lastname_;
     std::string firstname_;
