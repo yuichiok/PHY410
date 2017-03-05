@@ -1,1 +1,4 @@
 Tip,Q,87.3
+Okugawa,Yuichi,100.
+Chen,Lisong,98.8
+Cammet,Ben,90.0

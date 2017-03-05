@@ -6,26 +6,22 @@
 #include <iostream>
 
 class StudentRecord {
- public:
-    StudentRecord( std::vector<std::string> ln, std::vector<std::string> fn, std::vector<float> iscore );
+    
+public:
+    StudentRecord( std::string ln = "", std::string fn = "", float iscore = 0. );
     ~StudentRecord();
     
     void print() const;
-    
-    //bool input( std::istream & inp );
-    
-    //void input( char textfile );
     
     std::string last() const;
     std::string first() const;
     float score() const;
     
- private:
-    std::vector<std::string> lastname_;
-    std::vector<std::string> firstname_;
-    std::vector<float> score_;
-    //std::ifstream read_;
-
+private:
+    std::string lastname_;
+    std::string firstname_;
+    float score_;
+    
 };
 
 #endif

@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-StudentRecord::StudentRecord( std::vector<std::string> ln, std::vector<std::string> fn, std::vector<float> iscore ){
+StudentRecord::StudentRecord( std::string ln, std::string fn, float iscore ){
     
     lastname_ = ln;
     firstname_= fn;
@@ -16,16 +16,12 @@ StudentRecord::~StudentRecord(){};
 
 void StudentRecord::print() const{
     
-    std::cout << "Last name: " << lastname_[0] << std::endl;
-    std::cout << "First name: " << firstname_[0] << std::endl;
+    std::cout << "Last name: " << lastname_ << std::endl;
+    std::cout << "First name: " << firstname_ << std::endl;
+    std::cout << "Score: " << score_ << std::endl;
     
 }
 
-/*void input( char textfile ){
-    
-    std::ifstream in( textfile );
-    
-}*/
 
 
 
@@ -33,6 +29,6 @@ void StudentRecord::print() const{
 
 
 
-std::string StudentRecord::last() const { return lastname_[0]; }
-std::string StudentRecord::first() const { return firstname_[0]; }
-float StudentRecord::score() const { return score_[0]; }
+std::string StudentRecord::last() const { return lastname_; }
+std::string StudentRecord::first() const { return firstname_; }
+float StudentRecord::score() const { return score_; }

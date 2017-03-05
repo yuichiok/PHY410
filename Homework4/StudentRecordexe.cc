@@ -3,17 +3,29 @@
 #include <iostream>
 #include "StudentRecord.h"
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main( int argc, char * argv[] ){
     
     std::ifstream in( argv[1] );
     
-    //std::string first,last;
     float score=0.;
     
     std::vector<std::string> first,last;
     std::vector<float> scorevec;
-    
-    
+    std::vector<StudentRecord> record;
     
     while (in.is_open()){
         
@@ -43,18 +55,28 @@ int main( int argc, char * argv[] ){
     ivec = last.size();
     
     for(int j = 0; j < ivec; j++){
-        std::cout << "row " << j+1 << std::endl;
-        std::cout << "last name: " << last[j] << std::endl;
-        std::cout << "first name: " << first[j] << std::endl;
-        std::cout << "score: " << scorevec[j] << std::endl;
+        
+        //std::cout << "row " << j+1 << std::endl;
+        StudentRecord p(last[j],first[j],scorevec[j]);
+        //p.print();
+        record.push_back(p);
+        
+    }
+    
+    //record.at(1).print();
+    
+    int irecord = 0;
+    
+    irecord = record.size();
+    
+    for (int k = 0; k < irecord; k++) {
+        
+        std::cout << "Score for person " << k+1 << " is ";
+        std::cout << record.at(k).score() << std::endl;
+        
     }
     
     
-    //StudentRecord p1( line );
-    
-    //std::cout << " Last name: " << p1.last() << "\n First name: " << p1.first() << std::endl;
-    
-    //p1.print();
     
     return 0;
     
