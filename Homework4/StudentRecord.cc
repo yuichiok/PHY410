@@ -1,6 +1,10 @@
 #include "StudentRecord.h"
+#include <fstream>
+#include <vector>
+#include <iostream>
 
-StudentRecord::StudentRecord( std::string ln, std::string fn, float iscore ){
+
+StudentRecord::StudentRecord( std::vector<std::string> ln, std::vector<std::string> fn, std::vector<float> iscore ){
     
     lastname_ = ln;
     firstname_= fn;
@@ -12,29 +16,23 @@ StudentRecord::~StudentRecord(){};
 
 void StudentRecord::print() const{
     
-    std::cout << "Last name: " << lastname_ << std::endl;
-    std::cout << "First name: " << firstname_ << std::endl;
+    std::cout << "Last name: " << lastname_[0] << std::endl;
+    std::cout << "First name: " << firstname_[0] << std::endl;
     
 }
 
-/*bool StudentRecord::input ( std::istream & inp ) {
-    std::string line;
-    std::getline( inp, line, ',');
-    firstname_ = line;
-    std::getline( inp, line, ',');
-    lastname_ = line;
-    std::getline( inp, line );
-    score_ = std::atof( line.c_str() );
-    if ( line == "")
-        return false;
-    else
-        return true;
+/*void input( char textfile ){
+    
+    std::ifstream in( textfile );
+    
 }*/
 
 
 
 
 
-std::string StudentRecord::last() const { return lastname_; }
-std::string StudentRecord::first() const { return firstname_; }
-float StudentRecord::score() const { return score_; }
+
+
+std::string StudentRecord::last() const { return lastname_[0]; }
+std::string StudentRecord::first() const { return firstname_[0]; }
+float StudentRecord::score() const { return score_[0]; }
