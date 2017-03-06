@@ -2,13 +2,9 @@
 
 Homework4 goes here.  
 
-##Problem1
+##Problem  
 
-This is Problem1.  
-
-##Problem2  
-
-This is Problem2.  
+Problem1 and Problem2 goes in this directory.  
 
 ##Other  
 
