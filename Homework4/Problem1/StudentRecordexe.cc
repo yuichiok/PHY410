@@ -1,25 +1,10 @@
 #include <fstream>
 #include <vector>
 #include <iostream>
+#include <stdlib.h>
 #include "StudentRecord.h"
 
-float calculate_average(std::vector<StudentRecord> *rcd){
-    
-    int size = 0;
-    double sum,avg = 0;
-    size = rcd->size();
-    
-    for (int n = 0; n < size; n++) {
-        
-        sum += rcd->at(n).score();
-        
-    }
-    
-    avg = sum / size;
-    
-    return avg;
-    
-}
+float calculate_average(std::vector<StudentRecord> *rcd);
 
 int main( int argc, char * argv[] ){
     
@@ -38,19 +23,55 @@ int main( int argc, char * argv[] ){
     int ivec = 0;
     ivec = record.size();
     
-    for(int j = 0; j < ivec; j++){
-        std::cout << std::endl;
-        std::cout << "Subject " << j+1 << std::endl;
-        record.at(j).print();
+    if( argc == 2 ){
+        for(int j = 0; j < ivec; j++){
+            
+            std::cout << std::endl;
+            std::cout << "Subject " << j+1 << std::endl;
+            record.at(j).print();
+            
+        }
+    }else if( argc == 3 ){
+        
+        int index = 0;
+        index = atoi(argv[2])-1;
+        
+        if (index > ivec-1) {
+            std::cout << std::endl;
+            std::cout << "Error: your index is larger than number of subjects.\n";
+        }else{
+            std::cout << std::endl;
+            std::cout << "Subject " << index+1 << std::endl;
+            record.at(index).print();
+        }
+        
     }
     
     double result =0;
     
     result = calculate_average( &record );
     
-    std::cout << "\navg = " << result << std::endl;
+    std::cout << "\navg = " << result << "\n" << std::endl;
     
     return 0;
+    
+}
+
+float calculate_average(std::vector<StudentRecord> *rcd){
+    
+    int size = 0;
+    double sum,avg = 0;
+    size = rcd->size();
+    
+    for (int n = 0; n < size; n++) {
+        
+        sum += rcd->at(n).score();
+        
+    }
+    
+    avg = sum / size;
+    
+    return avg;
     
 }
 
