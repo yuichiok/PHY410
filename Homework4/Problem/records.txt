@@ -1,0 +1,11 @@
+Tip,Q,87.3
+Dawg,Phife,95.0
+Muhammad,Ali Shaheed,97.0
+White,Jarobi,85.0
+Bar,Foo,90.0
+Chapman,Graham,90.
+Cleese,John,80.
+Palin,Michael,87.
+Idle,Eric,91.
+Gilliam,Terry,80.
+Cleveland,Carol,100.
