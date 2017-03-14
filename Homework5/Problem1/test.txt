@@ -1,0 +1,4 @@
+Physics,Tip,Q,87.3,100.0
+Literature,Dawg,Phife,85.0,90.0,100.0
+History,Muhammad,Ali Shaheed,80.,100.
+Physics,White,Jarobi,100.,100.
