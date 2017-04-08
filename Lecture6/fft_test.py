@@ -6,7 +6,7 @@ import math
 
 plotfirst = True
 
-if plotfirst == True : 
+if plotfirst == False :
     # make some fake data :
 
     N = 1024
