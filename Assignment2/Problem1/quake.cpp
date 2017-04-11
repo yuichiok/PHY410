@@ -12,8 +12,14 @@ int main( int argc, char * argv[] )
   using namespace std; 
 
 
+    if(argc!=2){
+        cout << "Please enter the name of dataset (ex: ca_eq_1997_2017.csv)" << endl;
+        return 0;
+    }
+    
     // data downloaded from http://neic.usgs.gov/neis/epic/epic_global.html
     const string quake_data(argv[1]);
+    
 
     cout << " Earthquake data: Gutenberg-Richter Law" << endl;
 
@@ -95,8 +101,7 @@ int main( int argc, char * argv[] )
                 << "set ylabel \'log_10(N) per bin\'" << '\n'
                 << "set xrange [0:10]\n"
                 << "plot f(x) title \'" << a << " - " << -b << " M\', "
-                << "\'histogram.dat\' with points, "
-                << "\'histogram.dat\' with impulses lw 2" << '\n';
+                << "\'histogram.dat\' using 1:2 with points" << '\n';
     script_file.close();
 
     // If you're using gnuplot, you can execute as : 

@@ -200,7 +200,8 @@ int main()
     // fit histogram to straight line
     double a, b, sigma, sigma_a, sigma_b, test;
     least_squares_fit(entry, realval, a, b, sigma, sigma_a, sigma_b, test);
-    cout << " a = " << a << '\n' << " b = " << b << '\n'
+    cout << " a = " << a << " +- " << sigma_a << '\n'
+    << " b = " << b << " +- " << sigma_b << '\n'
     << " data error bar = " << sigma << "\n test = " << test << endl;
 
     
@@ -214,13 +215,14 @@ int main()
     
     ofstream script_file("co2.gnu");
     script_file << "f(x)=" << a << "+" << b << "*x" << '\n'
-    << "set title \'data.real vs i\'" << '\n'
-    << "set xlabel \'i\'" << '\n'
-    << "set ylabel \'data\'" << '\n'
+    << "set title \'CO2 vs time\'" << '\n'
+    << "set xlabel \'time\'" << '\n'
+    << "set ylabel \'CO2[ppm]\'" << '\n'
     << "set xrange [0:" << data.size() << "]\n"
     << "plot f(x) title \'" << a << " + " << b << " M\', "
     << "\'hist.dat\' using 1:2 with points, "
-    << "\'hist.dat\' using 1:3 with points" << '\n';
+    << "\'hist.dat\' using 1:3 with points" << '\n'
+    << "set output \"quake.png\"";
     script_file.close();
     
     
