@@ -7,19 +7,19 @@
 
 #include "least_squares.hpp"
 
-int main()
+int main( int argc, char * argv[] )
 {
   using namespace std; 
 
 
     // data downloaded from http://neic.usgs.gov/neis/epic/epic_global.html
-    const string quake_data("california_earthquakes_2010_to_2013.csv");
+    const string quake_data(argv[1]);
 
     cout << " Earthquake data: Gutenberg-Richter Law" << endl;
 
     // define a histogram to store the data
     int bins = 100;
-    double M_min = 1.0, M_max = 10.0;
+    double M_min = 3.0, M_max = 10.0;
     double dM = (M_max - M_min) / bins;
     vector<double> M(bins), N(bins);
     for (int i = 0; i < bins; i++)
@@ -49,7 +49,8 @@ int main()
 	    size_t foundlast = line.find(token, found);
             string magnitudestr = line.substr(found+1, foundlast);
             double magnitude = atof(magnitudestr.c_str());         // atof <cstdlib>
-	   
+            
+            
 	    // Find the bin number for this magnitude
             int binnumber = int( floor( (magnitude - M_min) / dM ) );   // floor <cmath>
 
@@ -82,7 +83,8 @@ int main()
     // fit histogram to straight line
     double a, b, sigma, sigma_a, sigma_b;
     least_squares_fit(M_values, log10N_values, a, b, sigma, sigma_a, sigma_b);
-    cout << " a = " << a << '\n' << " b = " << b << '\n'
+    cout << " a = " << a << " +- " << sigma_a << '\n'
+         << " b = " << b << " +- " << sigma_b << '\n'
          << " log_10(N) error bar = " << sigma << endl;
 
     // plot the linear fit if you want to use gnuplot
