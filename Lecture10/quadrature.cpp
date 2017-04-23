@@ -4,8 +4,7 @@
 #include "trapezoid.hpp"
 #include "simpson.hpp"
 
-using namespace std;
-
+using namespace std; 
 
 int main()
 {

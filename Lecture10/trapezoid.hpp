@@ -25,7 +25,7 @@ double adaptive_trapezoid(   // performs iterative trapezoid quadrature
     double a,                // lower limit of integration
     double b,                // upper limit of integration
     double acc,              // desired accuracy
-    bool output=false)       // output on each iteration if output == true
+    bool output=true)       // output on each iteration if output == true
 {
     double old_sum = 1e30;
     double h = b - a;
