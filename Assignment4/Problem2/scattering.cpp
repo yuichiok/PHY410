@@ -268,7 +268,7 @@ int main()
         file.close();
     }
     
-    ofstream file2("diff_cross2.data");
+    ofstream file2("diff_cross.data");
     
     //std::vector<double> dtheta_db;
     double dt_db=0, dSig_dO=0;
