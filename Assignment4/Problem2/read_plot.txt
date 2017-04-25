@@ -1,0 +1,8 @@
+#For reading plot
+
+$ python -i read_plot.py
+>>> [x,y] = read_plot("trajfile_cpp_1.data")
+>>> import matplotlib.pyplot as plt
+>>> plt.plot(x,y)
+>>> plt.show()
+
