@@ -6,9 +6,8 @@ int main()
     const int nNa = 2, nCl = 2;
     const int n = nNa + nCl;
     double a = 0.2;
-    double r_Na[nNa][3] = { { 0, 0, 0 }, { a, a, 0} };
+    double r_Na[nNa][3] = { { 0, 0, 0 }, { a, a, 0} }; //you need to play around with this
     double r_Cl[nCl][3] = { { a, 0, 0 }, { 0, a, 0 } };
-
 
     // Initialize the cluster, add guesses at the
     // minimum arrangement. 
