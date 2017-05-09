@@ -36,3 +36,4 @@ int main()
     cout << " f(" << p[0] << ", " << p[1] << ") = " << f_min
          << " in " << iterations << " iterations" << endl;
 }
+

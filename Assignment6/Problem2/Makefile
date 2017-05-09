@@ -6,7 +6,7 @@ CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=-I$(CPT_PATH) -L$(CPT_PATH) -lcpt
 
-all: higgs minimize
+all: nacl na2cl2
 
 $(SRC): $(SRC).o
 	$(CC) $(LDFLAGS) $(SRC).o -o $(SRC)
@@ -15,4 +15,4 @@ $(SRC).o: $(SRC).cpp
 	$(CC) $(CFLAGS)  $(LDFLAGS) $(SRC).cpp
 
 clean:
-	rm -rf *o higgs minimize
+	rm -rf *o nacl na2cl2
