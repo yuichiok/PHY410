@@ -6,7 +6,7 @@ CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=-I$(CPT_PATH) -L$(CPT_PATH) -lcpt
 
-all: pendul_nonlin solve_diff
+all: solve_diff
 
 $(SRC): $(SRC).o
 	$(CC) $(LDFLAGS) $(SRC).o -o $(SRC)
@@ -15,4 +15,4 @@ $(SRC).o: $(SRC).cpp
 	$(CC) $(CFLAGS)  $(LDFLAGS) $(SRC).cpp
 
 clean:
-	rm -rf *o pendul_nonlin solve_diff pend_plot.txt poincare_plot.txt
+	rm -rf *o solve_diff pend_plot.txt poincare_plot.txt
